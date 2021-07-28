@@ -276,8 +276,8 @@ function copyResources {
 	find "$browser_builddir" -type f -name "*.jsx" -delete
 	
 	if [ ! -z $DEBUG ]; then
-		cp "$SRCDIR/zotero/chrome/content/zotero/tools/testTranslators"/*.js \
-			"$SRCDIR/zotero/chrome/content/zotero/tools/testTranslators"/*.css \
+		cp "$EXTENSION_TRANSLATE_DIR/testTranslators"/*.js \
+			"$EXTENSION_TRANSLATE_DIR/testTranslators"/*.css \
 			"$browser_builddir/tools/testTranslators"
 	else
 		rm -rf "$browser_builddir/tools"
