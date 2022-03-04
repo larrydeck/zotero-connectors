@@ -122,7 +122,7 @@ var backgroundInclude = [
 	'translators.js',
 	'cachedTypes.js',
 	'errors_webkit.js',
-	'google-docs-plugin-manager.js',
+	'zotero-google-docs-integration/api.js',
 	'messages.js',
 	'messaging.js'
 ];
@@ -233,9 +233,6 @@ function processFile() {
 				if (!argv.p) {
 					contents = contents
 						.replace('"debug.log": false', '"debug.log": true')
-						// TODO: Replace with remote code repo URL once it is set up
-						.replace('"integration.googleDocs.codeRepositoryURL": ""',
-							'"integration.googleDocs.codeRepositoryURL": "http://127.0.0.1:8090/"');
 				}
 				contents = contents.replace(/\/\* this\.allowRepoTranslatorTester = SET IN BUILD SCRIPT \*\//,
 					`this.allowRepoTranslatorTester = ${!!process.env.ZOTERO_REPOSITORY_URL}`);

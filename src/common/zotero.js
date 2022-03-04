@@ -192,7 +192,8 @@ var Zotero = window.Zotero = new function() {
 			let xhr = await Zotero.HTTP.request('GET', Zotero.getExtensionURL('utilities/resource/dateFormats.json'), { responseType: 'json' });
 			dateFormatsJSON = xhr.response;
 		}
-		Zotero.Date.init(dateFormatsJSON);	}
+		Zotero.Date.init(dateFormatsJSON);
+	}
 	
 	/**
 	 * Initializes Zotero services for the global page in Chrome or Safari
@@ -243,9 +244,6 @@ var Zotero = window.Zotero = new function() {
 			await Zotero.i18n.init();
 			Zotero.Repo.init();
 			Zotero.Proxies.init();
-		}
-		if (Zotero.isBrowserExt) {
-			await Zotero.GoogleDocsPluginManager.init();
 		}
 		await this._initDateFormatsJSON();
 		Zotero.initDeferred.resolve();
@@ -432,9 +430,6 @@ Zotero.Prefs = new function() {
 		"proxies.clientChecked": false,
 		
 		"integration.googleDocs.enabled": true,
-		// TODO: Add a remote repo URL (with trailing slash) once it is set up
-		"integration.googleDocs.codeRepositoryURL": "",
-		"integration.googleDocs.repoCheckInterval": 24 * 60 * 60 * 1000, // 24hrs
 		
 		"shortcuts.cite": {ctrlKey: true, altKey: true, key: 'c'}
 	};
