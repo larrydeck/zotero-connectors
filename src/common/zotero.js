@@ -430,6 +430,7 @@ Zotero.Prefs = new function() {
 		"proxies.clientChecked": false,
 		
 		"integration.googleDocs.enabled": true,
+		"integration.googleDocs.useGoogleDocsAPI": false,
 		
 		"shortcuts.cite": {ctrlKey: true, altKey: true, key: 'c'}
 	};
@@ -464,6 +465,10 @@ Zotero.Prefs = new function() {
 		delete prefs['translatorMetadata'];
 		return Zotero.Promise.resolve(prefs);
 	};
+	
+	this.getDefault = function() {
+		return Object.assign({}, DEFAULTS);
+	}
 	
 	this.getAsync = function(pref) {
 		return new Zotero.Promise(function(resolve, reject) {

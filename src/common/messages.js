@@ -213,6 +213,7 @@ var MESSAGES = {
 	Prefs: {
 		set: false,
 		getAll: true,
+		getDefault: true,
 		getAsync: true,
 		clear: false
 	},
